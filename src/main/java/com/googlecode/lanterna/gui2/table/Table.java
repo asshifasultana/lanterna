@@ -214,16 +214,6 @@ public class Table<V> extends AbstractInteractableComponent<Table<V>> {
         return visibleRows;
     }
 
-    /**
-     * Returns the index of the row that is currently the first row visible. This is always 0 unless scrolling has been
-     * enabled and either the user or the software (through {@code setViewTopRow(..)}) has scrolled down.
-     * @return Index of the row that is currently the first row visible
-     * @deprecated Use the table renderers method instead
-     */
-    @Deprecated
-    public int getViewTopRow() {
-        return getRenderer().getViewTopRow();
-    }
     
     /**
      * Returns the index of the first row that is currently visible.
@@ -240,20 +230,6 @@ public class Table<V> extends AbstractInteractableComponent<Table<V>> {
     public int getLastViewedRowIndex() {
         int visibleRows = getRenderer().getVisibleRowsOnLastDraw();
         return Math.min(getRenderer().getViewTopRow() + visibleRows -1, tableModel.getRowCount() -1);
-    }
-
-    /**
-     * Sets the view row offset for the first row to display in the table. Calling this with 0 will make the first row
-     * in the model be the first visible row in the table.
-     *
-     * @param viewTopRow Index of the row that is currently the first row visible
-     * @return Itself
-     * @deprecated Use the table renderers method instead
-     */
-    @Deprecated
-    public synchronized Table<V> setViewTopRow(int viewTopRow) {
-        getRenderer().setViewTopRow(viewTopRow);
-        return this;
     }
 
     /**
@@ -524,5 +500,4 @@ public class Table<V> extends AbstractInteractableComponent<Table<V>> {
         }
         return column;
     }
-
 }
