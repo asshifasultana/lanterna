@@ -213,7 +213,6 @@ public class Table<V> extends AbstractInteractableComponent<Table<V>> {
     public int getVisibleRows() {
         return visibleRows;
     }
-
     
     /**
      * Returns the index of the first row that is currently visible.
